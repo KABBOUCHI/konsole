@@ -9,6 +9,7 @@ namespace KABBOUCHI
 {
     public class KonsoleManager : MonoBehaviour
     {
+        public string commandPrefix = "/";
         public Dictionary<string, KonsoleInfo> konsoles;
 
         static KonsoleManager instance;
@@ -55,22 +56,20 @@ namespace KABBOUCHI
 
         public void Excute(string fullCommand)
         {
-            if (fullCommand.StartsWith("/", StringComparison.Ordinal) == false)
+            if (fullCommand.StartsWith(commandPrefix, StringComparison.Ordinal) == false)
             {
                 throw new KonsoleInvalidCommandException();
             }
 
             var c = fullCommand.Split(null, 2);
 
-            var command = c[0].TrimStart('/');
+            var command = c[0].TrimStart(commandPrefix.ToCharArray());
             var args = c.Length > 1 ? c[1] : null;
             string[] inputs = null;
 
             if (args != null)
             {
                 inputs = args.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
-
-
             }
 
 
