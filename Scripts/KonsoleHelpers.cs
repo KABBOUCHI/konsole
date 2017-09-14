@@ -1,7 +1,7 @@
 namespace KABBOUCHI
 {
-    public static class KonsoleHelpers
-    {
-        
-    }
+	public static class KonsoleHelpers
+	{
+
+	}
 }

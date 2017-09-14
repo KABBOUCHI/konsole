@@ -2,11 +2,11 @@
 
 namespace KABBOUCHI
 {
-    public class KonsoleInvalidCommandException : UnityException
-    {
-        public KonsoleInvalidCommandException(string message = "Command is not valid") : base(message)
-        {
+	public class KonsoleInvalidkommandException : UnityException
+	{
+		public KonsoleInvalidkommandException(string message = "Command is not valid") : base(message)
+		{
 
-        }
-    }
+		}
+	}
 }
