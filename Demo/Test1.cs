@@ -17,8 +17,19 @@ public class Test1 : MonoBehaviour
 
 		input.onEndEdit.AddListener((value) =>
 		{
-			Konsole.Excute(value);
-			input.text = string.Empty;
+			try
+			{
+				Konsole.Excute(value);
+
+			}
+			catch (KonsoleInvalidkommandException exception)
+			{
+				print(exception.Message);
+			}
+			finally
+			{
+				input.text = string.Empty;
+			}
 		});
 	}
 	void OnEnable()
@@ -56,7 +67,7 @@ public class Test1 : MonoBehaviour
 		print(string.Format("Test1::RunMe => var1='{0}' var2={1}", var1, var2));
 	}
 
-	[Kommand("background", "usage: /background red, blue or green")]
+	[Kommand("bg", "usage: /bg red, blue or green")]
 	void SetBackground(string color)
 	{
 		print("Test1::SetBackground " + color);
@@ -75,6 +86,13 @@ public class Test1 : MonoBehaviour
 		}
 
 	}
+
+	[Kommand("sf","desc")]
+	public static void StaticFunc()
+	{
+		print("Test1::StaticFunc");
+	}
+
 
 	void Update()
 	{

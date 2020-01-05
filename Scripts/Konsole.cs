@@ -23,7 +23,7 @@ namespace KABBOUCHI
 			{
 				Type monoType = mono.GetType();
 
-				var methods = monoType.GetMethods(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
+				var methods = monoType.GetMethods(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Static);
 
 				for (int i = 0; i < methods.Length; i++)
 				{
@@ -50,7 +50,7 @@ namespace KABBOUCHI
 
 			Type monoType = script.GetType();
 
-			var methods = monoType.GetMethods(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
+			var methods = monoType.GetMethods(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Static);
 
 			for (int i = 0; i < methods.Length; i++)
 			{
